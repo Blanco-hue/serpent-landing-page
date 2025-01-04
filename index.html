@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serpent Landing Page</title>
+  <title>Subscription Plans</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -19,12 +19,10 @@
     }
 
     #animation {
-      display: block;
       width: 100%;
       max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
       margin-bottom: 20px;
+      display: block;
     }
 
     #subscriptions {
@@ -41,11 +39,6 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       background-color: #ffffff;
-    }
-
-    .plan img {
-      width: 100%;
-      height: auto;
     }
 
     .plan-header {
@@ -69,10 +62,13 @@
       color: #663300;
     }
 
-    .plan-body ul {
+    .plan-body {
       padding: 20px;
+    }
+
+    .plan-body ul {
+      padding: 0;
       list-style-type: none;
-      margin: 0;
     }
 
     .plan-body ul li {
@@ -121,6 +117,21 @@
     .plan-footer button.elite:hover {
       background-color: #e5c100;
     }
+
+    @media (max-width: 600px) {
+      .plan {
+        width: 95%;
+      }
+
+      .plan-body ul li {
+        font-size: 14px;
+      }
+
+      .plan-footer button {
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -130,11 +141,10 @@
     Your browser does not support the video tag.
   </video>
 
-  <!-- Subscription Section -->
+  <!-- Subscription Plans Section -->
   <div id="subscriptions">
     <!-- Silver Membership -->
     <div class="plan">
-      <img src="silver-logo.png" alt="Silver Membership Logo">
       <div class="plan-header silver">Silver Member - $15/month</div>
       <div class="plan-body">
         <ul>
@@ -149,7 +159,6 @@
 
     <!-- Diamond Membership -->
     <div class="plan">
-      <img src="diamond-logo.png" alt="Diamond Membership Logo">
       <div class="plan-header diamond">Diamond Member - $45/month</div>
       <div class="plan-body">
         <ul>
@@ -165,7 +174,6 @@
 
     <!-- Elite Membership -->
     <div class="plan">
-      <img src="elite-logo.png" alt="Elite Membership Logo">
       <div class="plan-header elite">Elite Member - $75/month</div>
       <div class="plan-body">
         <ul>
@@ -185,7 +193,6 @@
     const animation = document.getElementById('animation');
     const subscriptions = document.getElementById('subscriptions');
 
-    // Show subscriptions after animation ends
     animation.addEventListener('ended', () => {
       animation.style.display = 'none';
       subscriptions.style.display = 'block';
@@ -193,6 +200,7 @@
   </script>
 </body>
 </html>
+
 
 
 
