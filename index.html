@@ -3,76 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscription Page</title>
+  <title>Serpent Society</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: black;
-      color: white;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
     }
 
-    .container {
+    video {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+    }
+
+    #subscriptions {
       display: none;
-      justify-content: center;
-      gap: 20px;
       margin: 20px;
-      flex-wrap: wrap;
+      display: grid;
+      gap: 20px;
     }
 
     .card {
-      background-color: #1c1c1c;
-      border-radius: 8px;
-      padding: 20px;
-      width: 300px;
-      text-align: center;
+      border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s;
+      text-align: center;
+      padding: 20px;
     }
 
-    .card:hover {
-      transform: scale(1.05);
+    .silver {
+      background-color: #2d2d2d;
+      border: 2px solid silver;
     }
 
-    .card h2 {
-      color: #ffcc00;
+    .diamond {
+      background-color: #1a237e;
+      color: #ffffff;
     }
 
-    .card p {
-      color: #bfbfbf;
-      margin: 15px 0;
+    .elite {
+      background-color: gold;
+      color: #000;
     }
 
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin-top: 10px;
-      font-size: 16px;
+    button {
+      background-color: orange;
       color: white;
-      background: linear-gradient(90deg, #ff7f50, #ff4500);
+      padding: 10px 20px;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s;
     }
 
-    .button:hover {
-      background: linear-gradient(90deg, #ff4500, #ff7f50);
+    button:hover {
+      background-color: darkorange;
     }
 
-    .button:active {
-      transform: scale(0.95);
-    }
-
-    #animation {
-      width: 100%;
-      max-width: 600px;
+    @media (min-width: 768px) {
+      #subscriptions {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
@@ -81,33 +78,42 @@
     <source src="SERPENT.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <div class="container" id="subscription-container">
-    <div class="card">
+
+  <div id="subscriptions">
+    <div class="card silver">
       <h2>Silver Member - $15/month</h2>
       <p>Accède au Discord de Serpent Society</p>
       <p>Unlock tout les fournisseurs (2000+ articles)</p>
-      <a href="https://silver-plan-link.com" class="button">Choose Silver</a>
+      <button onclick="window.location.href='https://your-payment-link-silver.com'">Choose Silver</button>
     </div>
-    <div class="card">
+    <div class="card diamond">
       <h2>Diamond Member - $45/month</h2>
       <p>Accède au Discord de Serpent Society</p>
       <p>Unlock tout les fournisseurs (2000+ articles)</p>
       <p>10% de rabais sur tout</p>
-      <a href="https://diamond-plan-link.com" class="button">Choose Diamond</a>
+      <button onclick="window.location.href='https://your-payment-link-diamond.com'">Choose Diamond</button>
+    </div>
+    <div class="card elite">
+      <h2>Elite Member - $75/month</h2>
+      <p>Accède au Discord de Serpent Society</p>
+      <p>Unlock tout les fournisseurs (2000+ articles)</p>
+      <p>20% de rabais sur tout</p>
+      <button onclick="window.location.href='https://your-payment-link-elite.com'">Choose Elite</button>
     </div>
   </div>
 
   <script>
     const animation = document.getElementById('animation');
-    const subscriptionContainer = document.getElementById('subscription-container');
+    const subscriptions = document.getElementById('subscriptions');
 
     animation.addEventListener('ended', () => {
       animation.style.display = 'none';
-      subscriptionContainer.style.display = 'flex';
+      subscriptions.style.display = 'grid';
     });
   </script>
 </body>
 </html>
+
 
 
 
