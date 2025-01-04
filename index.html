@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serpent Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    video {
+      width: 100%;
+      max-width: 600px;
+    }
+    #subscriptions {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: purple;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: darkviolet;
+    }
+  </style>
+</head>
+<body>
+  <video id="animation" autoplay muted playsinline>
+    <source src="SERPENT.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div id="subscriptions">
+    <h2>Choose Your Subscription</h2>
+    <button onclick="window.location.href='https://basic-plan-link.com'">Basic Plan - $10/month</button>
+    <button onclick="window.location.href='https://premium-plan-link.com'">Premium Plan - $20/month</button>
+  </div>
+
+  <script>
+    const animation = document.getElementById('animation');
+    const subscriptions = document.getElementById('subscriptions');
+
+    animation.addEventListener('ended', () => {
+      animation.style.display = 'none';
+      subscriptions.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
