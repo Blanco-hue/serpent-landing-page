@@ -4,37 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serpent Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-color: black;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
       color: white;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
+
     video {
       width: 100%;
       max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     }
+
     #subscriptions {
       display: none;
       flex-direction: column;
-      gap: 20px;
+      gap: 15px;
+      margin-top: 20px;
+      text-align: center;
+      padding: 0 20px;
     }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #f2f2f2;
+    }
+
     button {
-      padding: 10px 20px;
+      width: 100%;
+      max-width: 300px;
+      padding: 15px;
       font-size: 16px;
-      border: none;
-      background-color: purple;
+      font-weight: bold;
       color: white;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s ease;
     }
-    button:hover {
-      background-color: darkviolet;
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    button span.icon {
+      margin-right: 10px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 18px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 12px;
+      }
     }
   </style>
 </head>
@@ -43,16 +82,22 @@
     <source src="SERPENT.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+
   <div id="subscriptions">
     <h2>Choose Your Subscription</h2>
-    <button onclick="window.location.href='https://basic-plan-link.com'">Basic Plan - $10/month</button>
-    <button onclick="window.location.href='https://premium-plan-link.com'">Premium Plan - $20/month</button>
+    <button onclick="window.location.href='https://your-basic-plan-link.com'">
+      <span class="icon">💵</span> Basic Plan - $10/month
+    </button>
+    <button onclick="window.location.href='https://your-premium-plan-link.com'">
+      <span class="icon">💎</span> Premium Plan - $20/month
+    </button>
   </div>
 
   <script>
     const animation = document.getElementById('animation');
     const subscriptions = document.getElementById('subscriptions');
 
+    // Show subscription options after video ends
     animation.addEventListener('ended', () => {
       animation.style.display = 'none';
       subscriptions.style.display = 'flex';
@@ -60,3 +105,4 @@
   </script>
 </body>
 </html>
+
