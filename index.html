@@ -9,100 +9,190 @@
     body {
       margin: 0;
       padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
-      color: white;
-      font-family: 'Poppins', sans-serif;
+      justify-content: flex-start;
+      min-height: 100vh;
     }
 
-    video {
+    #animation {
+      display: block;
       width: 100%;
       max-width: 600px;
       border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+      margin-bottom: 20px;
     }
 
     #subscriptions {
       display: none;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #f2f2f2;
-    }
-
-    button {
       width: 100%;
-      max-width: 300px;
-      padding: 15px;
+      text-align: center;
+    }
+
+    .plan {
+      width: 90%;
+      max-width: 400px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .plan img {
+      width: 100%;
+      height: auto;
+    }
+
+    .plan-header {
+      padding: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .plan-header.silver {
+      background-color: #c0c0c0;
+      color: #333;
+    }
+
+    .plan-header.diamond {
+      background-color: #b9f2ff;
+      color: #004080;
+    }
+
+    .plan-header.elite {
+      background-color: #ffd700;
+      color: #663300;
+    }
+
+    .plan-body ul {
+      padding: 20px;
+      list-style-type: none;
+      margin: 0;
+    }
+
+    .plan-body ul li {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .plan-footer {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .plan-footer button {
+      padding: 15px 20px;
       font-size: 16px;
       font-weight: bold;
       color: white;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
       border: none;
-      border-radius: 10px;
+      border-radius: 5px;
       cursor: pointer;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-      transition: transform 0.2s ease;
+      transition: background-color 0.3s ease;
     }
 
-    button:active {
-      transform: scale(0.95);
+    .plan-footer button.silver {
+      background-color: #c0c0c0;
     }
 
-    button span.icon {
-      margin-right: 10px;
-      font-size: 18px;
+    .plan-footer button.silver:hover {
+      background-color: #a0a0a0;
     }
 
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 18px;
-      }
+    .plan-footer button.diamond {
+      background-color: #b9f2ff;
+      color: #004080;
+    }
 
-      button {
-        font-size: 14px;
-        padding: 12px;
-      }
+    .plan-footer button.diamond:hover {
+      background-color: #99d2e5;
+    }
+
+    .plan-footer button.elite {
+      background-color: #ffd700;
+      color: #663300;
+    }
+
+    .plan-footer button.elite:hover {
+      background-color: #e5c100;
     }
   </style>
 </head>
 <body>
+  <!-- Animation Section -->
   <video id="animation" autoplay muted playsinline>
     <source src="SERPENT.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
+  <!-- Subscription Section -->
   <div id="subscriptions">
-    <h2>Choose Your Subscription</h2>
-    <button onclick="window.location.href='https://your-basic-plan-link.com'">
-      <span class="icon">💵</span> Basic Plan - $10/month
-    </button>
-    <button onclick="window.location.href='https://your-premium-plan-link.com'">
-      <span class="icon">💎</span> Premium Plan - $20/month
-    </button>
+    <!-- Silver Membership -->
+    <div class="plan">
+      <img src="silver-logo.png" alt="Silver Membership Logo">
+      <div class="plan-header silver">Silver Member - $15/month</div>
+      <div class="plan-body">
+        <ul>
+          <li>Accède au discord de Serpent Society</li>
+          <li>Unlock tout les fournisseurs (2000+ articles)</li>
+        </ul>
+      </div>
+      <div class="plan-footer">
+        <button class="silver">Choose Silver</button>
+      </div>
+    </div>
+
+    <!-- Diamond Membership -->
+    <div class="plan">
+      <img src="diamond-logo.png" alt="Diamond Membership Logo">
+      <div class="plan-header diamond">Diamond Member - $45/month</div>
+      <div class="plan-body">
+        <ul>
+          <li>Accède au discord de Serpent Society</li>
+          <li>Unlock tout les fournisseurs (2000+ articles)</li>
+          <li>10% de rabais sur tout</li>
+        </ul>
+      </div>
+      <div class="plan-footer">
+        <button class="diamond">Choose Diamond</button>
+      </div>
+    </div>
+
+    <!-- Elite Membership -->
+    <div class="plan">
+      <img src="elite-logo.png" alt="Elite Membership Logo">
+      <div class="plan-header elite">Elite Member - $75/month</div>
+      <div class="plan-body">
+        <ul>
+          <li>Accède au discord de Serpent Society</li>
+          <li>Unlock tout les fournisseurs (2000+ articles)</li>
+          <li>10% de rabais sur tout</li>
+          <li>Free shipping sur tout</li>
+        </ul>
+      </div>
+      <div class="plan-footer">
+        <button class="elite">Choose Elite</button>
+      </div>
+    </div>
   </div>
 
   <script>
     const animation = document.getElementById('animation');
     const subscriptions = document.getElementById('subscriptions');
 
-    // Show subscription options after video ends
+    // Show subscriptions after animation ends
     animation.addEventListener('ended', () => {
       animation.style.display = 'none';
-      subscriptions.style.display = 'flex';
+      subscriptions.style.display = 'block';
     });
   </script>
 </body>
 </html>
+
+
 
