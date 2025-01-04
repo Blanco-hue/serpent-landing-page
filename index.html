@@ -3,116 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serpent Society</title>
+  <title>Serpent Landing Page</title>
   <style>
+    /* General Styles */
     body {
       margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       font-family: Arial, sans-serif;
-      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: black;
       color: white;
+    }
+
+    /* Animation Page */
+    #animation-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
     }
 
     video {
-      width: 100%;
+      max-width: 100%;
       height: auto;
-      max-height: 80vh;
     }
 
+    /* Subscription Page */
     #subscriptions {
       display: none;
-      margin: 20px;
-      display: grid;
+      flex-direction: row;
+      justify-content: center;
       gap: 20px;
-    }
-
-    .card {
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-align: center;
       padding: 20px;
     }
 
+    .card {
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
     .silver {
-      background-color: #2d2d2d;
-      border: 2px solid silver;
+      background-color: #C0C0C0;
+      color: black;
     }
 
     .diamond {
-      background-color: #1a237e;
-      color: #ffffff;
+      background-color: #B9F2FF;
+      color: black;
     }
 
-    .elite {
-      background-color: gold;
-      color: #000;
+    .gold {
+      background-color: #FFD700;
+      color: black;
     }
 
-    button {
-      background-color: orange;
-      color: white;
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .button {
+      margin-top: 20px;
       padding: 10px 20px;
+      font-size: 16px;
       border: none;
       border-radius: 5px;
-      font-size: 16px;
+      background-color: black;
+      color: white;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    button:hover {
-      background-color: darkorange;
+    .button:hover {
+      background-color: darkgray;
     }
 
-    @media (min-width: 768px) {
-      #subscriptions {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
   </style>
 </head>
 <body>
-  <video id="animation" autoplay muted playsinline>
-    <source src="SERPENT.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 
+  <!-- Animation Section -->
+  <div id="animation-container">
+    <video id="animation" autoplay muted playsinline>
+      <source src="SERPENT.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Subscription Section -->
   <div id="subscriptions">
     <div class="card silver">
-      <h2>Silver Member - $15/month</h2>
+      <h2>Silver Member</h2>
+      <div class="price">$15/month</div>
       <p>Accède au Discord de Serpent Society</p>
       <p>Unlock tout les fournisseurs (2000+ articles)</p>
-      <button onclick="window.location.href='https://your-payment-link-silver.com'">Choose Silver</button>
+      <button class="button" onclick="window.location.href='https://silver-plan-link.com'">Choose Silver</button>
     </div>
+
     <div class="card diamond">
-      <h2>Diamond Member - $45/month</h2>
+      <h2>Diamond Member</h2>
+      <div class="price">$45/month</div>
       <p>Accède au Discord de Serpent Society</p>
       <p>Unlock tout les fournisseurs (2000+ articles)</p>
       <p>10% de rabais sur tout</p>
-      <button onclick="window.location.href='https://your-payment-link-diamond.com'">Choose Diamond</button>
+      <button class="button" onclick="window.location.href='https://diamond-plan-link.com'">Choose Diamond</button>
     </div>
-    <div class="card elite">
-      <h2>Elite Member - $75/month</h2>
+
+    <div class="card gold">
+      <h2>Elite Member</h2>
+      <div class="price">$75/month</div>
       <p>Accède au Discord de Serpent Society</p>
       <p>Unlock tout les fournisseurs (2000+ articles)</p>
       <p>20% de rabais sur tout</p>
-      <button onclick="window.location.href='https://your-payment-link-elite.com'">Choose Elite</button>
+      <button class="button" onclick="window.location.href='https://gold-plan-link.com'">Choose Elite</button>
     </div>
   </div>
 
   <script>
     const animation = document.getElementById('animation');
+    const animationContainer = document.getElementById('animation-container');
     const subscriptions = document.getElementById('subscriptions');
 
     animation.addEventListener('ended', () => {
-      animation.style.display = 'none';
-      subscriptions.style.display = 'grid';
+      animationContainer.style.display = 'none';
+      subscriptions.style.display = 'flex';
     });
   </script>
+
 </body>
 </html>
+
 
 
 
